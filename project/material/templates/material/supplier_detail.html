@@ -1,0 +1,51 @@
+{% extends "material/base.html" %}
+
+
+{% block content %}
+    <h1 class='text-center mt-4 mb-4'>{{ supplier.supplier }}</h1>
+    <div class="container mb-4">
+        <div class="row border-top p-3 bg-light">
+            <div class="col-md-6 mb-3">
+                <label for="{{ form.country.id_for_label }}" class="form-label">Country:</label>
+                {{ supplier.country }}
+            </div>
+            <div class="col-md-6 mb-3">
+                <label for="{{ form.contact_person.id_for_label }}" class="form-label">Contact Person:</label>
+                {{ supplier.contact_person }}
+            </div>
+        </div>
+        <div class="row border-bottom p-3 bg-light">
+            <div class="col-md-6 mb-3">
+                <label for="{{ form.email.id_for_label }}" class="form-label">Email:</label>
+                {{ supplier.email }}
+            </div>
+            <div class="col-md-6 mb-3">
+                <label for="{{ form.phone.id_for_label }}" class="form-label">Phone:</label>
+                {{ supplier.phone }}
+            </div>
+        </div>
+    </div>
+    
+    <h4 class='text-center mt-4 mb-4'>Materials</h4>
+    <div class="container">
+        <table class="table table-hover table-striped">
+            <tr class="table-dark">
+                <th>Material Number</th>
+                <th>Material ID</th>
+                <th>Material</th>
+                <th>Group</th>
+            </tr>
+            {% for material in materials %}
+                <tr>
+                    <td> {{ material.material_number }} </td>
+                    <td> {{ material.material_id }} </td>
+                    <td> {{ material.name }} </td>
+                    <td> {{ material.group }} </td>
+                    {% empty %}
+                    <td class='text-center' colspan="4">No materials</td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+                
+{% endblock content %}

@@ -2,6 +2,7 @@
 
 {% block content %}
     <h1>Groups</h1>
+    <a href="{% url 'material:add_group' %}">Add Group</a>
     <table class="table table-hover table-striped">
         <tr class="table-dark">
             <th>Group Category</th>
@@ -11,8 +12,8 @@
         {% for group in groups %}
             <tr>
                 <td> {{ group.name }} </td>
-                <td><i class="bi bi-pencil"></i></td>
-                <td><i class="bi bi-trash3-fill"></i></td>
+                <td><a href="{% url 'material:edit_group' group.id %}"><span class="badge bg-warning">Edit</span></td>
+                <td><a href="{% url 'material:delete_group' group.id %}"><span class="badge bg-danger">Delete</span></td>
             </tr>
         {% endfor %}
     </table>

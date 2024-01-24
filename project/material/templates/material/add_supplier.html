@@ -1,0 +1,18 @@
+{% extends "material/base.html" %}
+
+
+{% block content %}
+    <div class="container">
+        <h1>Add Supplier</h1>
+        <div class="mt-4">
+            <form method="post">
+                {% csrf_token %}
+
+                {{ form.as_div }}
+                
+                <button type="submit" class="btn btn-primary mt-3">Add</button>
+            </form>
+        </div>
+    </div>
+{% endblock content %}
+    

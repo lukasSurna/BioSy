@@ -8,3 +8,5 @@ class GroupAdmin(admin.ModelAdmin):
     
 
 admin.site.register(models.Group, GroupAdmin)
+admin.site.register(models.Supplier)
+admin.site.register(models.Material)

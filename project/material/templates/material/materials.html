@@ -1,0 +1,32 @@
+{% extends "material/base.html" %}
+
+{% block content %}
+<h1 class="text-center mt-4 mb-4">Material</h1>
+<div class="container">
+    <a href="{% url 'material:add_material' %}">Add Material</a>
+    <table class="table table-hover table-striped">
+        <tr class="table-dark">
+            <th>Material Number</th>
+            <th>Material ID</th>
+            <th>Material</th>
+            <th>Group</th>
+            <th>Supplier</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+        {% for material in materials %}
+            <tr>
+                <td> {{ material.material_number }} </td>
+                <td> {{ material.material_id }} </td>
+                <td> {{ material.name }} </td>
+                <td> {{ material.group }} </td>
+                <td><a href="{% url 'material:supplier_detail' material.supplier.id %}">{{ material.supplier }}</a></td>
+                <td><a href="#"><span class="badge bg-warning">Edit</span></td>
+                <td><a href="#"><span class="badge bg-danger">Delete</span></td>
+            </tr>
+        {% endfor %}
+    </table>
+</div>
+    
+{% endblock content %}
+    
